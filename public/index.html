@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sequence Online</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel hero">
+      <h1>Sequence Online</h1>
+      <p>العب ويا جماعتك من الموبايل. واحد ينشئ غرفة والباقين يدخلون بالكود.</p>
+      <div class="row">
+        <input id="nameInput" maxlength="18" placeholder="اسمك" />
+        <button id="createBtn">إنشاء غرفة</button>
+      </div>
+      <div class="row">
+        <input id="codeInput" maxlength="5" placeholder="كود الغرفة" />
+        <button id="joinBtn">دخول</button>
+      </div>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section id="game" class="game hidden">
+      <div class="topbar panel">
+        <div>
+          <b>الغرفة:</b> <span id="roomCode">-----</span>
+          <button id="copyBtn" class="small">نسخ الرابط</button>
+        </div>
+        <div><b>الدور:</b> <span id="turnName">-</span></div>
+        <div><b>الفائز:</b> <span id="winnerName">-</span></div>
+      </div>
+
+      <section id="hostPanel" class="panel host hidden">
+        <label>الفرق
+          <select id="teamCount">
+            <option value="2">فريقين</option>
+            <option value="3">3 فرق</option>
+          </select>
+        </label>
+        <label>السيكوينسات للفوز
+          <select id="seqWin">
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+        </label>
+        <button id="startBtn">ابدأ اللعبة</button>
+      </section>
+
+      <section class="layout">
+        <aside class="panel players">
+          <h2>اللاعبين</h2>
+          <div id="players"></div>
+          <h2>آخر الحركات</h2>
+          <div id="log"></div>
+        </aside>
+
+        <section class="panel boardWrap">
+          <div id="board" class="board"></div>
+        </section>
+      </section>
+
+      <section class="panel handPanel">
+        <h2>كروتك</h2>
+        <p class="hint">اختار كارت، بعدين اضغط مكان باللوحة. J♣/J♦ يحط بأي مكان فارغ. J♠/J♥ يشيل فيشة خصم.</p>
+        <div id="hand" class="hand"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>
