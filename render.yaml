@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: sequence-online-game
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
